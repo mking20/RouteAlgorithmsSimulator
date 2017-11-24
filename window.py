@@ -120,8 +120,9 @@ class Ui_MainWindow(object):
         self.menuHello_World.setTitle(_translate("MainWindow", "Hello World!"))
 
     def btnCrearClicked(self):
-        #Vaciar escena.
+        #Vaciar escena y progressbar
         self.scene.clear()
+        self.bar.setProperty("value", 0)
         #Obtener valores del Scene
         n= self.sbN.value()
         m= self.sbM.value()

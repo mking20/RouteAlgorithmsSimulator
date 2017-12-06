@@ -9,10 +9,23 @@ This project is the Final project for Algorithms Design from the ICE major at CE
   - The object will start to find its way through as soon as you select the algorithm, the passed spaces will be colored differently.
    
 
-Necessary modules:
+# Authors:
+
+- Arturo Lopez: [Turi57](https://github.com/Turi57)
+- Claudia King
+- Fernando Cortez: [fernandoraulcortezchavez](https://github.com/fernandoraulcortezchavez)
+- Raul Aragon: [RaulAT](https://github.com/RaulAT)
+- Valeria González: [AnaValeriaGM](https://github.com/AnaValeriaGM)
+- Victor Peralta: [VictorPeralta](https://github.com/VictorPeralta)
+
+### Support
+
+Route Algorithms Simulator used the following modules to work correctly:
+
 
 For graphic interface:
   PyQt5
+  
  For a Star:
   heapq
  

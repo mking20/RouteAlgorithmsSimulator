@@ -1,11 +1,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets, QtTest
-##import random as r
-##import numpy as np
-##import time as t
-from astar import *
-from bellman import *
-from concurrent import *
+from AStar import *
+from BellmanFord import *
+from ConcurrentDijkstra import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):

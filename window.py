@@ -4,8 +4,11 @@ import random as r
 import numpy as np
 import time as t
 from astar import *
+from BellmanFord import *
 
 class Ui_MainWindow(object):
+    start = (0,0)
+    end = (0,0)
     def setupUi(self, MainWindow):
         #Set MainWindow
         MainWindow.setObjectName("MainWindow")
@@ -150,16 +153,16 @@ class Ui_MainWindow(object):
                     rec= QtWidgets.QGraphicsRectItem(j*cw,i*ch,cw,ch)
                     rec.setBrush(brush)
                     self.scene.addItem(rec)
-            
-        #Agregar imagen. No se ha definido como cambiar tamanio entonces la imagen no siempre cuadraria.
-##        pixmap = QtGui.QPixmap("caballo.png")
-##        pixmap.scaled(20,20)
-##        pixItem = QtWidgets.QGraphicsPixmapItem(pixmap)
-##        pixItem.setOffset(100,100)
-##        self.scene.addItem(pixItem)
+
         print("Crear",n,m)
 
     def btnEnterClicked(self):
+        start_in = input("Start")
+        end_in = input("End")
+        start_in = start_in.split(",")
+        end_in = end_in.split(",")
+        self.start = (int(start_in[0]), int(start_in[1]))
+        self.end = (int(end_in[0]), int(end_in[1]))
         #Escoger algoritmo y resolver
         index= self.cbAlgoritmos.currentIndex()
         path=[]
@@ -168,6 +171,7 @@ class Ui_MainWindow(object):
             path= self.estrella(self.array)
         elif index == 1:
             print("Bellman-Ford")
+            path = self.bf(self.array)
             #bf() Introducir metodo y que regrese un camino
         elif index == 2:
             print("Dijsktra concurrente")
@@ -196,10 +200,10 @@ class Ui_MainWindow(object):
         cw= 545/n
         ch= 255/m
         #Para que coloree el inicio de un color distinto
-        if step[0] == 0 and step[1] == 0:
+        if step[0] == self.start[0] and step[1] == self.start[1]:
             color= QtGui.QColor(200,0,100,255)
         #Para que coloree el final de un color distinto
-        elif step[0] == 7 and step[1] == 7:
+        elif step[0] == self.end[0] and step[1] == self.end[1]:
             color= QtGui.QColor(0,200,100,255)
         #Color para el camino
         else:
@@ -212,33 +216,35 @@ class Ui_MainWindow(object):
         self.graphics.show()
 
     def crearLab(self,n,m):
-            #Se crearia un laberinto al azar.
-##        for i in range(n):
-##            array2=[]
-##            for i in range(m):
-##                numero= r.randint(0,3)
-##                if numero == 3:
-##                    array2.append(1)
-##                else:
-##                    array2.append(0)
-##            array.append(array2)
-        self.array= np.array([
-    [0,0,0,0,0,0,0,0],
-    [1,1,0,1,1,1,1,1],
-    [0,0,0,0,0,0,0,0],
-    [1,1,1,1,1,1,0,1],
-    [0,0,0,0,0,0,0,0],
-    [1,0,1,1,1,1,1,1],
-    [0,0,0,0,0,1,1,1],
-    [0,0,1,1,0,0,0,0]]) #Laberinto predisenado que se puede resolver.
-        #array= np.flipud(array)
+        for i in range(n):
+            array2=[]
+            for j in range(m):
+                numero = r.randint(0,3)
+                if numero == 3:
+                    print("3")
+                    array2.append(1)
+                else:
+                    print("else")
+                    array2.append(0)
+            print("append")
+            self.array.append(array2)
         return self.array
+
+
     
     def estrella(self,array): #Llamar al algoritmo a estrella con los siguientes parametros
         start=(0,0)
         end=(7,7)
         path= astar(array, start,end)
         path.append((0,0))
+        print(path)
+        return path
+
+    def bf(self,array):
+        print(self.start, self.end)
+        print("Calling bf")
+        path = bellmanFord(array, self.start, self.end)
+        path.append((0, 0))
         print(path)
         return path
 

@@ -11,7 +11,6 @@ def bellmanFord(maze, startTuple, endTuple, diagonalsAllowed=True):
     distances = {}
     predecessor = {}
     edges = {}
-    print("Coords")
     width = len(maze)
     length = len(maze[0])
     for i in range(width):
@@ -24,34 +23,22 @@ def bellmanFord(maze, startTuple, endTuple, diagonalsAllowed=True):
 
     distances[startTuple] = 0
     for _ in range(1, width*length):
-        print("ITER")
         for key in distances:
             if distances[key] == math.inf:
                 continue
             for edge in edges[key]:
-                print(key, ":", edge)
                 if distances[key] + 1 < distances[edge]:
                     distances[edge] = distances[key] + 1
-                    print(distances[edge])
                     predecessor[edge] = key
-
-
-    print(predecessor)
-    print(distances)
-
-    print("HELLO")
     prev = predecessor[endTuple]
     path = [endTuple]
     while not prev == startTuple:
         if prev == None:
             return []
         path.append(prev)
-        print(prev)
+
         prev = predecessor[prev]
-
-
-    print(path)
-    print(distances[endTuple])
+    path.append(startTuple)
     return path
 
 def getAdjacentSquares(maze, currentSquare, diagonalsAllowed, includeObstacles = False):

@@ -117,7 +117,6 @@ def dijkstraSequential(maze, startTuple, endTuple, diagonalsAllowed):
     visited = {}
     unvisited = {node: sys.maxsize for node in nodeList}
     previous = {node : None for node in nodeList}
-    print("unvisited ", unvisited)
     current = startTuple
     unvisited[current] = 0
 
@@ -207,7 +206,6 @@ def dijkstraParallel(maze, startTuple, endTuple, diagonalsAllowed):
 
         # Check if the endNode was found already
         if parent[endTuple] != None:
-            print("Found")
             break
 
     # TODO: Find the path from the start node to the end node

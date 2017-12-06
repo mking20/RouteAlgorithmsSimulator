@@ -20,9 +20,8 @@ def bellmanFord(maze, startTuple, endTuple, diagonalsAllowed=True):
                 tuple = (i,j)
                 distances[tuple] = math.inf
                 predecessor[tuple] = None
-                edges[tuple] = getAdjacentSquares(maze, tuple, False)
+                edges[tuple] = getAdjacentSquares(maze, tuple, diagonalsAllowed)
 
-    print(getAdjacentSquares(maze, (0,1),False))
     distances[startTuple] = 0
     for _ in range(1, width*length):
         print("ITER")
@@ -52,7 +51,7 @@ def bellmanFord(maze, startTuple, endTuple, diagonalsAllowed=True):
 
 
     print(path)
-
+    print(distances[endTuple])
     return path
 
 def getAdjacentSquares(maze, currentSquare, diagonalsAllowed, includeObstacles = False):

@@ -24,7 +24,8 @@ Route Algorithms Simulator used the following modules to work correctly:
 
 
 For graphic interface:
-  PyQt5
+
+* [PyQT] - Helps with the graphics in a user-friendly way
   
  For a Star:
   heapq

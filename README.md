@@ -23,8 +23,6 @@ This project is the Final project for Algorithms Design from the ICE major at CE
 Route Algorithms Simulator used the following modules to work correctly:
 
 
-For graphic interface:
-
  - [PyQT] - Helps with the graphics in a user-friendly way
   
  - [heapq]

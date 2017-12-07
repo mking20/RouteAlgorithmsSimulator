@@ -25,10 +25,11 @@ Route Algorithms Simulator used the following modules to work correctly:
 
 For graphic interface:
 
-* [PyQT] - Helps with the graphics in a user-friendly way
+[PyQT] - Helps with the graphics in a user-friendly way
   
  For a Star:
-  heapq
+ [heapq]
  
- Overall:
-  numpy
+Overall:
+
+[Numpy](http://www.numpy.org/) : We used this library because it adds support for large multi-dimension arrays and matrices, along with a large collection of high-level mathematical functions to operate on these arrays. 

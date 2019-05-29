@@ -12,7 +12,7 @@ This project is the Final project for Algorithms Design from the ICE major at CE
 # Authors:
 
 - Arturo Lopez: [Turi57](https://github.com/Turi57)
-- Claudia King
+- Claudia King : [mking20](https://github.com/mking20)
 - Fernando Cortez: [fernandoraulcortezchavez](https://github.com/fernandoraulcortezchavez)
 - Raul Aragon: [RaulAT](https://github.com/RaulAT)
 - Valeria González: [AnaValeriaGM](https://github.com/AnaValeriaGM)
